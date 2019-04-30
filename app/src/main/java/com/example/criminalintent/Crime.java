@@ -9,6 +9,7 @@ public class Crime
     private String mTitle;
     private Date mDate;
     private boolean mSolved;
+    private boolean mRequirePolice;
 
     public Crime()
     {
@@ -46,8 +47,20 @@ public class Crime
         mSolved = solved;
     }
 
+    public boolean isRequirePolice()
+    {
+        return mRequirePolice;
+    }
+
+    public void setRequirePolice(boolean requirePolice)
+    {
+        mRequirePolice = requirePolice;
+    }
+
     public UUID getId()
     {
         return mId;
     }
+
+
 }
