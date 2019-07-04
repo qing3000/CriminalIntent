@@ -1,6 +1,10 @@
 package com.example.criminalintent;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.criminalintent.database.CrimeBaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +14,8 @@ public class CrimeLab
 {
     private static CrimeLab sCrimeLab;
     private List<Crime> mCrimes;
+    private Context mContext;
+    private SQLiteDatabase mDatabase;
 
     public static CrimeLab get(Context context)
     {
@@ -22,6 +28,8 @@ public class CrimeLab
 
     private CrimeLab(Context context)
     {
+        mContext = context.getApplicationContext();
+        mDatabase = new CrimeBaseHelper(mContext).getWritableDatabase();
         mCrimes = new ArrayList<>();
     }
 
